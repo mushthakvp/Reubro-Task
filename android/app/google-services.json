@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "269532507076",
+    "project_id": "reubro-f36f9",
+    "storage_bucket": "reubro-f36f9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:269532507076:android:0112cbc5db1f4901a35291",
+        "android_client_info": {
+          "package_name": "com.musthak.reubro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "269532507076-ve0veqki5116j87dnb5egc165di80vmj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArntOa4VeDRH9nAyyoEBMfgLao5wwRWpg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "269532507076-ve0veqki5116j87dnb5egc165di80vmj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
