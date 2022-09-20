@@ -3,7 +3,9 @@ import 'package:flutter/cupertino.dart';
 class TaskThreeViewModel extends ChangeNotifier {
   final height = TextEditingController();
   final weight = TextEditingController();
+
   int rindex = 0;
+
   changeRadioButton({required int index}) {
     rindex = index;
     notifyListeners();

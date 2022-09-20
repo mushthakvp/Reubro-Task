@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:reubro/app/home/home_scree.dart';
 import 'package:reubro/app/routes/routes.dart';
 import 'package:reubro/app/task_three/view/widgets/radiobutton.dart';
-
 import '../view_model/task_three_viewmodel.dart';
 
 class TaskThreeView extends StatelessWidget {
@@ -85,41 +84,64 @@ class TaskThreeView extends StatelessWidget {
           ),
           const SizedBox(height: 40),
           Center(
-            child: Consumer<TaskThreeViewModel>(builder: (context, value, _) {
-              return Text(
-                "Your BMI is : ${value.bmiRes.toStringAsFixed(2)}",
-                style: const TextStyle(
-                  fontSize: 25,
-                ),
-              );
-            }),
+            child: Consumer<TaskThreeViewModel>(
+              builder: (context, value, _) {
+                return Text(
+                  "Your BMI is : ${value.bmiRes.toStringAsFixed(2)}",
+                  style: const TextStyle(
+                    fontSize: 25,
+                  ),
+                );
+              },
+            ),
           ),
           const SizedBox(height: 20),
           Consumer<TaskThreeViewModel>(builder: (context, value, _) {
             return Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text("Normal", style: TextStyle(fontSize: 20, color: value.bmiRes < 25 ? Colors.green : Colors.black)),
+                Text("Normal",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: value.bmiRes >= 18.5 && value.bmiRes < 25
+                            ? Colors.green
+                            : Colors.black)),
                 Text(
                   "18.5 - 24.9",
-                  style: TextStyle(fontSize: 20, color: value.bmiRes < 25 ? Colors.green : Colors.black),
+                  style: TextStyle(
+                      fontSize: 20,
+                      color: value.bmiRes >= 18.5 && value.bmiRes < 25
+                          ? Colors.green
+                          : Colors.black),
                 ),
               ],
             );
           }),
           const SizedBox(height: 10),
-          Consumer<TaskThreeViewModel>(builder: (context, value, _) {
-            return Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Text("Over Weight", style: TextStyle(fontSize: 20, color: value.bmiRes >= 25 ? Colors.red : Colors.black)),
-                Text(
-                  "25.0 - 29.9",
-                  style: TextStyle(fontSize: 20, color: provider.bmiRes >= 25 ? Colors.red : Colors.black),
-                ),
-              ],
-            );
-          }),
+          Selector<TaskThreeViewModel, double>(
+            selector: (BuildContext context, TaskThreeViewModel obj) =>
+                obj.bmiRes,
+            builder: (context, double value, _) {
+              return Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text(
+                    "Over Weight",
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: value >= 25 ? Colors.red : Colors.black,
+                    ),
+                  ),
+                  Text(
+                    "25.0 - 29.9",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: value >= 25 ? Colors.red : Colors.black),
+                  ),
+                ],
+              );
+            },
+          ),
         ],
       ),
     );

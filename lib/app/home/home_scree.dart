@@ -30,19 +30,13 @@ class HomeScreen extends StatelessWidget {
             onPressed: () {
               Routes.push(screen: const TaskTwoView());
             },
-            child: const Text("Task Two FireBase"),
+            child: const Text("Task Two Firebase"),
           ),
           ElevatedButton(
             onPressed: () {
               Routes.push(screen: const TaskSplash());
             },
             child: const Text("Task three Bmicalculator"),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              Routes.push(screen: const TaskOneView());
-            },
-            child: const Text("GitHub Link"),
           ),
         ],
       ),
